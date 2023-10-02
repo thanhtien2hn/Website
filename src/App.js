@@ -1,9 +1,17 @@
-import { Button } from 'antd'
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+import { routes } from './routes'
 
 function App() {
   return (
     <div>
-      <Button>OK</Button>
+      <Router>
+        <Routes>
+          {routes.map((route) => {
+            const Page = route.page
+            return <Route path={route.path} element={<Page />} />
+          })}
+        </Routes>
+      </Router>
     </div>
   )
 }
